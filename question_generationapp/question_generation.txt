@@ -1,0 +1,23 @@
+# from transformers import pipeline
+# from transformers import pipeline
+
+# def generate_questions(text):
+#     question_generation = pipeline('text2text-generation', model='valhalla/t5-base-qg-hl')
+#     generated_questions = question_generation(text)
+#     questions = [q['generated_text'] for q in generated_questions]
+#     return questions
+
+
+# views.py
+# from django.shortcuts import render
+# from .training.questiongenerator import QuestionGenerator
+
+# def generate_questions(request):
+#     text_file_path = 'path_to_your_text_file.txt'  # Update with the actual path to your text file
+#     with open(text_file_path, 'r') as file:
+#         text = file.read()
+
+#     qg = QuestionGenerator()
+#     qa_list = qg.generate(text, num_questions=10, answer_style="all", use_evaluator=True)
+
+#     return render(request, 'question_generator.html', {'qa_list': qa_list})
