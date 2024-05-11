@@ -106,7 +106,7 @@ def dashboard(request):
 
 
 
-def patients_profile(request):
+def user_profile(request):
     current_user = request.user
     current_patient = User.objects.get(user=current_user)
 
@@ -116,7 +116,7 @@ def patients_profile(request):
             patient = form.save(commit=False)
             patient.age_years = calculate_age_years(patient.date_of_birth)
             patient.save()  
-            return redirect('patient_dashboard')
+            return redirect('dashboard')
     else:
         form = PatientForm(instance=current_patient)
 
@@ -124,7 +124,7 @@ def patients_profile(request):
         'patient': current_patient,
         'form': form,
     }
-    return render(request, 'patients/patients-profile.html', context)
+    return render(request, 'user/user-profile.html', context)
 
 def calculate_age_years(date_of_birth):
     today = date.today()
